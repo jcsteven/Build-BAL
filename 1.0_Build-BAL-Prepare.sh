@@ -1,6 +1,6 @@
 #!/bin/bash
 # -------------------------------------------------------
-# Automatic preparation script for rtk_openwrt 
+# Automatic preparation script for rtk_openwrt
 # JC Yu,     Novenber 26,2015
 # -------------------------------------------------------
 # IMPORTANT:
@@ -50,32 +50,32 @@ if [[ "${TO_PREPARE_BAL}" == "y" ]]; then
 	if [ ! -d ${ONL_DIR} ]; then
 	   echo $LINENO "missing ${ONL_DIR}" |  tee -a $Record_File
 	   exit -1
-	fi	
+	fi
 
 	if [ ! -f ${BROADCOM_DOWNLOAD_DIR}/${BALSRC_ZIPNAME} ]; then
 	   echo $LINENO "missing ${BROADCOM_DOWNLOAD_DIR}/${BALSRC_ZIPNAME}" |  tee -a $Record_File
 	   exit -1
-	fi		
-	
+	fi
+
 	if [ ! -f "${BROADCOM_DOWNLOAD_DIR}/${SDK_FILE}" ]; then
 	   echo $LINENO "123missing ${BROADCOM_DOWNLOAD_DIR}/${SDK_FILE}" |  tee -a $Record_File
 	   exit -1
-	fi		
-	
+	fi
+
 	if [ ! -f "${EDGECORE_DOWNLOAD_DIR}/${PATCH_FILENAME}" ]; then
 	   echo $LINENO "missing ${BROADCOM_DOWNLOAD_DIR}/${PATCH_FILENAME}" |  tee -a $Record_File
 	   exit -1
 	fi
-	
+
 	cd ${ONL_DIR}
 	echo "1. Prepare  BAL "
     mkdir -p ./${BAL_NAME}
 	#unzip BAL src
 	unzip ${BROADCOM_DOWNLOAD_DIR}/${BALSRC_ZIPNAME} -d ./${BAL_NAME}
-	
-	#copy SDK 
+
+	#copy SDK
 	cp ${BROADCOM_DOWNLOAD_DIR}/${SDK_FILE}  ./${BAL_NAME}/bal_release/3rdparty/bcm-sdk
-	
+
 	# Copy the patch file to the Broadcom SDK directory:
     cp ${EDGECORE_DOWNLOAD_DIR}/${PATCH_FILENAME} ./${BAL_NAME}
 	chmod -R 744 ./${BAL_NAME}
@@ -85,9 +85,9 @@ if [[ "${TO_PREPARE_BAL}" == "y" ]]; then
 fi
 
 TO_ONL_LINK="y"
-if [[ "${TO_ONL_LINK}" == "y" ]]; then	
+if [[ "${TO_ONL_LINK}" == "y" ]]; then
 	cd ${ONL_DIR}
-	
+
 	#Create the link to the kernel source:
 	echo "BAL_NAME=${BAL_NAME}"
 	cd ./${BAL_NAME}/bcm68620_release
@@ -99,7 +99,7 @@ if [[ "${TO_ONL_LINK}" == "y" ]]; then
 		cd ../..
 	cd ../..
 
-fi	
+fi
 
 cd  ${PPWW}
 

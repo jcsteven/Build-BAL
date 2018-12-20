@@ -1,6 +1,6 @@
 #!/bin/bash
 # -------------------------------------------------------
-# Automatic preparation script for rtk_openwrt 
+# Automatic preparation script for rtk_openwrt
 # JC Yu,     Novenber 26,2015
 # -------------------------------------------------------
 # IMPORTANT:
@@ -13,7 +13,7 @@ source build_comm-BAL.sh
 s_time=$(date +%s)
 echo "..............................................................................." | tee -a $Record_File
 echo "Start:Qumran-Build-${TODAY}=> ${ONL_DIR}" | tee -a $Record_File
-	
+
 TO_BUILD_QUMRAN="y"
 if [[ "${TO_BUILD_QUMRAN}" == "y" ]]; then
 	echo "2.1 Build Qumran SDK"
@@ -21,9 +21,9 @@ if [[ "${TO_BUILD_QUMRAN}" == "y" ]]; then
 	if [ ! -d ${BAL_BUILD_DIR} ]; then
 	   echo $LINENO "missing ${BAL_BUILD_DIR}" |  tee -a $Record_File
 	   exit -1
-	fi			
+	fi
 	cd ${BUILD_DIR}
-	
+
 	make BOARD=asfvolt16 switch_sdk_dir
 	make BOARD=asfvolt16 switch_sdk
 	cd ../../..
@@ -38,8 +38,8 @@ if [[ "${TO_BUILD_BCM_USER}" == "y" ]]; then
 	if [ ! -d ${BAL_BUILD_DIR} ]; then
 	   echo $LINENO "missing ${BAL_BUILD_DIR}" |  tee -a $Record_File
 	   exit -1
-	fi	
-	
+	fi
+
 	pushd ${BUILD_DIR}
 	KERNDIR=${ONL_DIR}/packages/base/amd64/kernels/kernel-4.14-lts-x86-64-all/builds/jessie/linux-4.14.49 BOARD=asfvolt16 ARCH=x86_64 SDKBUILD=build_bcm_user make
 	popd

@@ -1,6 +1,6 @@
 #!/bin/bash
 # -------------------------------------------------------
-# Automatic preparation script for rtk_openwrt 
+# Automatic preparation script for rtk_openwrt
 # JC Yu,     Novenber 26,2015
 # -------------------------------------------------------
 # IMPORTANT:
@@ -20,7 +20,7 @@ if [[ "${TO_PREPARE_BAL}" == "y" ]]; then
 	if [ ! -d ${ONL_DIR} ]; then
 	   echo $LINENO "missing ${ONL_DIR}" |  tee -a $Record_File
 	   exit -1
-	fi	
+	fi
 
 	cd ${PPWW}/${ONL_NAME}
 	rm -rf ./${BAL_NAME}

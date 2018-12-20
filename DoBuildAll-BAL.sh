@@ -1,6 +1,6 @@
 #!/bin/bash
 # -------------------------------------------------------
-# Automatic preparation script for rtk_openwrt 
+# Automatic preparation script for rtk_openwrt
 # JC Yu,     Novenber 26,2015
 # -------------------------------------------------------
 # IMPORTANT:
@@ -21,7 +21,7 @@ if [[ "${TO_BUILD_ALL}" == "y" ]]; then
 	if [ ! -d ${BAL_BUILD_DIR} ]; then
 	   echo $LINENO "missing ${BAL_BUILD_DIR}" |  tee -a $Record_File
 	   exit -1
-	fi			
+	fi
 	cd ${BUILD_DIR}
 
 	make BOARD=asfvolt16 maple_sdk_dir
@@ -45,4 +45,4 @@ hh=$((elap_s/3600))
 echo "==============================================================================" | tee -a  $Record_File
 echo "End  :All-Build-${TODAY}=> ${ONL_DIR}" | tee -a $Record_File
 echo "Build total time: $hh:$mm:$ss" | tee -a  $Record_File
-echo "==============================================================================" | tee -a  $Record_File	
+echo "==============================================================================" | tee -a  $Record_File

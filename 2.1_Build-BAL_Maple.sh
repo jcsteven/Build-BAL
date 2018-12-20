@@ -1,6 +1,6 @@
 #!/bin/bash
 # -------------------------------------------------------
-# Automatic preparation script for rtk_openwrt 
+# Automatic preparation script for rtk_openwrt
 # JC Yu,     Novenber 26,2015
 # -------------------------------------------------------
 # IMPORTANT:
@@ -21,14 +21,14 @@ if [[ "${TO_BUILD_MAPLE}" == "y" ]]; then
 	if [ ! -d ${BAL_BUILD_DIR} ]; then
 	   echo $LINENO "missing ${BAL_BUILD_DIR}" |  tee -a $Record_File
 	   exit -1
-	fi			
+	fi
 	cd ${BUILD_DIR}
-	
+
 	make BOARD=asfvolt16 maple_sdk_dir
 	make BOARD=asfvolt16 maple_sdk
 	cd ../../..
 fi
-	
+
 #cd  ${PPWW}
 
 e_time=$(date +%s)

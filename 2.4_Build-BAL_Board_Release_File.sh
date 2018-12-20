@@ -1,6 +1,6 @@
 #!/bin/bash
 # -------------------------------------------------------
-# Automatic preparation script for rtk_openwrt 
+# Automatic preparation script for rtk_openwrt
 # JC Yu,     Novenber 26,2015
 # -------------------------------------------------------
 # IMPORTANT:
@@ -21,9 +21,9 @@ if [[ "${TO_BUILD_BOARD_RELEASE_FILE1}" == "y" ]]; then
 	if [ ! -d ${BAL_BUILD_DIR} ]; then
 	   echo $LINENO "missing ${BAL_BUILD_DIR}" |  tee -a $Record_File
 	   exit -1
-	fi			
+	fi
 	cd ${BUILD_DIR}
-	
+
 	make BOARD=asfvolt16 release_board
 	cd ../../..
 fi

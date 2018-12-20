@@ -1,6 +1,6 @@
 #!/bin/bash
 # -------------------------------------------------------
-# Automatic preparation script for rtk_openwrt 
+# Automatic preparation script for rtk_openwrt
 # JC Yu,     Novenber 26,2015
 # -------------------------------------------------------
 # IMPORTANT:
@@ -15,7 +15,7 @@ echo "..........................................................................
 echo "Start:2.5  BAL_Build-Copy Image-${TODAY}=> ${ONL_DIR}" | tee -a $Record_File
 
 IMAGE_NAME=amd64-${TODAY}-BAL-Build
-[ -d ./${IMAGE_NAME} ] || mkdir -p ./${IMAGE_NAME} 
+[ -d ./${IMAGE_NAME} ] || mkdir -p ./${IMAGE_NAME}
 
 TO_COPY_ONL_IMAGE="y"
 if [[ "${TO_COPY_ONL_IMAGE}" == "y" ]]; then
@@ -24,10 +24,10 @@ if [[ "${TO_COPY_ONL_IMAGE}" == "y" ]]; then
 	if [ ! -d ${BUILD_DIR1} ]; then
 	   echo $LINENO "missing ${BUILD_DIR1}" |  tee -a $Record_File
 	   exit -1
-	fi		
+	fi
 	#-- Create build imgage folder
 	cp ${BUILD_DIR1}/ONL-asxvolt16_ONL-OS_*_AMD64_INSTALLED_INSTALLER ./${IMAGE_NAME}
-fi 
+fi
 
 TO_COPY_BAL_IMAGE="y"
 if [[ "${TO_COPY_BAL_IMAGE}" == "y" ]]; then 

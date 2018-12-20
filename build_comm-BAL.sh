@@ -1,6 +1,6 @@
 #!/bin/bash
 # -------------------------------------------------------
-# Automatic preparation script for rtk_openwrt 
+# Automatic preparation script for rtk_openwrt
 # JC Yu,     Novenber 26,2015
 # -------------------------------------------------------
 # IMPORTANT:
@@ -9,11 +9,11 @@
 #TODAY=`date +"%Y-%m%d-%H%M"`
 :${PPWW:=`pwd`}
 #--2017-1117
-#:${CMM_ID:=166c116414a5ff5f504e0dce449db5b6916ed674} 
+#:${CMM_ID:=166c116414a5ff5f504e0dce449db5b6916ed674}
 #:${CMM_DATE:=2017-1117}
 
 #--2017-1228
-:${CMM_ID:=1303f2080419b8ed3add4161d7d1a31bab793b5b} 
+:${CMM_ID:=1303f2080419b8ed3add4161d7d1a31bab793b5b}
 :${CMM_DATE:=2017-1228}
 
 
