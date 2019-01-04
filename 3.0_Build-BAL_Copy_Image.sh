@@ -20,13 +20,16 @@ IMAGE_NAME=amd64-${TODAY}-BAL-Build
 TO_COPY_ONL_IMAGE="y"
 if [[ "${TO_COPY_ONL_IMAGE}" == "y" ]]; then
 	echo "To Copy ONL Image File."
+	cd ./${ONL_NAME}
+	ONL_VERSION=`git branch | sed -e 's/*//g' | sed -e 's/^[ \t]*//'`
+	cd ..
 	BUILD_DIR1=./${ONL_NAME}/RELEASE/jessie/amd64
 	if [ ! -d ${BUILD_DIR1} ]; then
 	   echo $LINENO "missing ${BUILD_DIR1}" |  tee -a $Record_File
 	   exit -1
 	fi
 	#-- Create build imgage folder
-	cp ${BUILD_DIR1}/ONL-asxvolt16_ONL-OS_*_AMD64_INSTALLED_INSTALLER ./${IMAGE_NAME}
+	cp ${BUILD_DIR1}/ONL-${ONL_VERSION}_ONL-OS_*_AMD64_INSTALLED_INSTALLER ./${IMAGE_NAME}
 fi
 
 TO_COPY_BAL_IMAGE="y"
