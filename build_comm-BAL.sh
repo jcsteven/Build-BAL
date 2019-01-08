@@ -18,7 +18,7 @@
 
 
 ONL_GIT_NAME="https://github.com/jcsteven/OpenNetworkLinux.git"
-ONL_GIT_B=asxvolt16
+ONL_GIT_B=2019-0103-fixed-tg3
 ONL_NAME=OpenNetworkLinux
 ONL_DIR=${PPWW}/${ONL_NAME}
 
