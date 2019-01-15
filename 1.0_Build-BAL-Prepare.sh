@@ -91,8 +91,8 @@ if [[ "${TO_ONL_LINK}" == "y" ]]; then
 	#Create the link to the kernel source:
 	echo "BAL_NAME=${BAL_NAME}"
 	cd ./${BAL_NAME}/bcm68620_release
-	mkdir -p ./asfvolt16/kernels
-		cd ./asfvolt16/kernels
+	mkdir -p ./asfvolt64/kernels
+		cd ./asfvolt64/kernels
 		ln -s ../../../../packages/base/amd64/kernels/kernel-4.14-lts-x86-64-all/builds/jessie/linux-4.14.49 linux-4.14.49
 		ln -s ../../../../packages/base/any/kernels/archives/linux-4.14.49.tar.xz linux-4.14.49.tar.xz
 		ln -s ../../../../packages/base/any/kernels/4.14-lts/configs/x86_64-all/x86_64-all.config x86_64-all.config

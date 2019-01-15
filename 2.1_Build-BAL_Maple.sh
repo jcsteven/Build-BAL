@@ -24,8 +24,8 @@ if [[ "${TO_BUILD_MAPLE}" == "y" ]]; then
 	fi
 	cd ${BUILD_DIR}
 
-	make BOARD=asfvolt16 maple_sdk_dir
-	make BOARD=asfvolt16 maple_sdk
+	make BOARD=asfvolt64 maple_sdk_dir
+	make BOARD=asfvolt64 maple_sdk
 	cd ../../..
 fi
 

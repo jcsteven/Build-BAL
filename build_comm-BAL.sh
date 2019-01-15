@@ -26,10 +26,10 @@ BAL_NAME=bal_src_release
 BAL_DIR=${ONL_DIR}/${BAL_NAME}
 BAL_BUILD_DIR=${ONL_DIR}/${BAL_NAME}/bal_release
 
-ASFVOLT_GIT_NAME="https://gerrit.opencord.org/asfvolt16-driver"
+ASFVOLT_GIT_NAME="https://gerrit.opencord.org/asfvolt64-driver"
 ASFVOLT_B=1.2.0
-#ASFVOLT_DRV_NAME=asfvolt16-driver-b${ASFVOLT_DRV_B}
-ASFVOLT_DRV_NAME=asfvolt16-driver
+#ASFVOLT_DRV_NAME=asfvolt64-driver-b${ASFVOLT_DRV_B}
+ASFVOLT_DRV_NAME=asfvolt64-driver
 ASFVOLT_DRV_DIR=${ONL_DIR}/${ASFVOLT_DRV_NAME}
 
 
