@@ -17,8 +17,8 @@
 :${CMM_DATE:=2017-1228}
 
 
-ONL_GIT_NAME="https://github.com/jcsteven/OpenNetworkLinux.git"
-ONL_GIT_B=asxvolt16
+ONL_GIT_NAME="https://github.com/jostar-yang/OpenNetworkLinux.git"
+ONL_GIT_B=asxvlot16b_0130
 ONL_NAME=OpenNetworkLinux
 ONL_DIR=${PPWW}/${ONL_NAME}
 
