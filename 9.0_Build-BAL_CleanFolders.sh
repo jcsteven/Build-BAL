@@ -31,7 +31,7 @@ fi
 
 
 #--- Check out the specified ONL code from git Hub
-TO_UPDATE_ONL="y"
+#TO_UPDATE_ONL="y"
 if [[ "${TO_UPDATE_ONL}" == "y" ]]; then
 echo $LINENO "Remove ONL_DIR=${ONL_DIR}" |  tee -a $Record_File
 sudo rm -rf  ${ONL_DIR}

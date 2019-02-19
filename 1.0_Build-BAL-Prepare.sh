@@ -24,7 +24,7 @@ echo "..........................................................................
 echo "Start:Prepare :${TODAY}=> ${ONL_DIR}-BAL}" | tee -a $Record_File
 
 #--- Check out the specified ONL code from git Hub
-TO_UPDATE_ONL="y"
+#TO_UPDATE_ONL="y"
 if [[ "${TO_UPDATE_ONL}" == "y" ]]; then
 	git clone ${ONL_GIT_NAME} -b ${ONL_GIT_B} ${ONL_DIR}
 	#cd ./${ONL_NAME}
