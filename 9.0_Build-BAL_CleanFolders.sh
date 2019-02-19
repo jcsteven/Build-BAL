@@ -22,10 +22,8 @@ if [[ "${TO_PREPARE_BAL}" == "y" ]]; then
 	   exit -1
 	fi
 
-	cd ${PPWW}
 	echo $LINENO "Remove BAL_NAME=${BAL_NAME}" |  tee -a $Record_File
-	rm -rf ./${BAL_NAME}
-	cd ${PPWW}
+	rm -rf ${BAL_DIR}
 fi
 
 
