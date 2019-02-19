@@ -35,7 +35,7 @@ fi
 TO_COPY_BAL_IMAGE="y"
 if [[ "${TO_COPY_BAL_IMAGE}" == "y" ]]; then 
 	echo "To Copy BAL Image File."	
-	BUILD_DIR2=${BAL_DIR}/3rdparty/bcm-sdk/rc/asfvolt16/release
+	BUILD_DIR2=${BAL_BUILD_DIR}/3rdparty/bcm-sdk/rc/asfvolt16/release
 	if [ ! -d ${BAL_BUILD_DIR2} ]; then
 	   echo $LINENO "missing ${BUILD_DIR2}" |  tee -a $Record_File
 	   exit -1
