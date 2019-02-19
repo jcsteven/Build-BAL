@@ -32,7 +32,7 @@ fi
 TO_BUILD_BCM_USER="y"
 if [[ "${TO_BUILD_BCM_USER}" == "y" ]]; then
 	echo "2.2 Build BCM USER"
-	BUILD_DIR=${${BAL_BUILD_DIR}/3rdparty/bcm-sdk/build-asfvolt16/${SWISDK_TARNAME}/systems/linux/user/x86-generic_64-2_6
+	BUILD_DIR=${BAL_BUILD_DIR}/3rdparty/bcm-sdk/build-asfvolt16/${SWISDK_TARNAME}/systems/linux/user/x86-generic_64-2_6
 
 	if [ ! -d ${BAL_BUILD_DIR} ]; then
 	   echo $LINENO "missing ${BAL_BUILD_DIR}" |  tee -a $Record_File
