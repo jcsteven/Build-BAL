@@ -17,7 +17,7 @@ echo "Start:Maple-Build-${TODAY}=> ${ONL_DIR}" | tee -a $Record_File
 TO_BUILD_MAPLE="y"
 if [[ "${TO_BUILD_MAPLE}" == "y" ]]; then
 	echo "1. Build Maple SDK"
-	BUILD_DIR=./${ONL_NAME}/${BAL_NAME}/bal_release
+	BUILD_DIR=${BAL_BUILD_DIR}
 	if [ ! -d ${BAL_BUILD_DIR} ]; then
 	   echo $LINENO "missing ${BAL_BUILD_DIR}" |  tee -a $Record_File
 	   exit -1
@@ -26,7 +26,7 @@ if [[ "${TO_BUILD_MAPLE}" == "y" ]]; then
 
 	make BOARD=asfvolt16 maple_sdk_dir
 	make BOARD=asfvolt16 maple_sdk
-	cd ../../..
+	cd ${PPWW}
 fi
 
 #cd  ${PPWW}

@@ -17,7 +17,7 @@ echo "Start:2.33.BAL_API-Build-${TODAY}=> ${ONL_DIR}" | tee -a $Record_File
 TO_BUILD_BAL_API_USER="y"
 if [[ "${TO_BUILD_BAL_API_USER}" == "y" ]]; then
 	echo "2.3 Build BAL API"
-	BUILD_DIR=./${ONL_NAME}/${BAL_NAME}/bal_release
+	BUILD_DIR=${BAL_BUILD_DIR}
 	if [ ! -d ${BAL_BUILD_DIR} ]; then
 	   echo $LINENO "missing ${BAL_BUILD_DIR}" |  tee -a $Record_File
 	   exit -1
@@ -25,7 +25,7 @@ if [[ "${TO_BUILD_BAL_API_USER}" == "y" ]]; then
 	cd ${BUILD_DIR}
 
 	make BOARD=asfvolt16 bal
-	cd ../../..
+	cd ${PPWW}
 fi
 
 

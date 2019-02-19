@@ -1,6 +1,6 @@
 #!/bin/bash
 # -------------------------------------------------------
-# Automatic preparation script for rtk_openwrt 
+# Automatic preparation script for rtk_openwrt
 # JC Yu,     Novenber 26,2015
 # -------------------------------------------------------
 # IMPORTANT:
@@ -14,10 +14,10 @@ s_time=$(date +%s)
 echo "==============================================================================" | tee -a $Record_File
 echo "Start:ONL-Build-${TODAY}=> ${ONL_DIR}" | tee -a $Record_File
 
-cd ./${ONL_NAME}
+cd ${ONL_DIR}
 echo "1. Build ONL "  | tee -a $Record_File
-make amd64 
-cd ..
+make amd64
+cd ${PPWW}
 
 e_time=$(date +%s)
 elap_s=$((e_time-s_time))
