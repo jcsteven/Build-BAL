@@ -24,15 +24,15 @@ if [[ "${TO_BUILD_QUMRAN}" == "y" ]]; then
 	fi
 	cd ${BUILD_DIR}
 
-	make BOARD=asfvolt16 V=1 switch_sdk_dir
-	make BOARD=asfvolt16 V=1 switch_sdk
+	make BOARD=asfvolt64 V=1 switch_sdk_dir
+	make BOARD=asfvolt64 V=1 switch_sdk
 	cd ${PPWW}
 fi
 
 TO_BUILD_BCM_USER="y"
 if [[ "${TO_BUILD_BCM_USER}" == "y" ]]; then
 	echo "2.2 Build BCM USER"
-	BUILD_DIR=${BAL_BUILD_DIR}/3rdparty/bcm-sdk/build-asfvolt16/${SWISDK_TARNAME}/systems/linux/user/x86-generic_64-2_6
+	BUILD_DIR=${BAL_BUILD_DIR}/3rdparty/bcm-sdk/build-asfvolt64/${SWISDK_TARNAME}/systems/linux/user/x86-generic_64-2_6
 
 	if [ ! -d ${BAL_BUILD_DIR} ]; then
 	   echo $LINENO "missing ${BAL_BUILD_DIR}" |  tee -a $Record_File
@@ -40,7 +40,7 @@ if [[ "${TO_BUILD_BCM_USER}" == "y" ]]; then
 	fi
 
 	pushd ${BUILD_DIR}
-	KERNDIR=${ONL_DIR}/packages/base/amd64/kernels/kernel-4.14-lts-x86-64-all/builds/jessie/linux-4.14.49 BOARD=asfvolt16 ARCH=x86_64 SDKBUILD=build_bcm_user make
+	KERNDIR=${ONL_DIR}/packages/base/amd64/kernels/kernel-4.14-lts-x86-64-all/builds/jessie/linux-4.14.49 BOARD=asfvolt64 ARCH=x86_64 SDKBUILD=build_bcm_user make
 	popd
 fi
 
