@@ -14,13 +14,15 @@ HowToBuild
       So, if you want to git update the ONL source, be sure to add [TO_UPDATE_ONL="y"]
  
 2. Get in Docker environment
-  $ cd OpenNetworkLinux/
+  This build environment assumes the ONL fol at ${HOME}/OpenNetworkLinux
+  $ cd ${HOME}/OpenNetworkLinux/
   $ docker/tools/onlbuilder -8
   $ apt-cacher-ng
   $ source setup.env
   $ cd ..
   
 3. Run the scrip o build code
+  This build environment assumes the BAL_NAME at ./bal_src_release
   $ ./2.0_Build-BAL_ONL.sh
   $ ./2.1_Build-BAL_Maple.sh 
   $ ./2.2_Build-BAL_Qumran.sh 

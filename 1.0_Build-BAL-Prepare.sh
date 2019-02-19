@@ -26,7 +26,7 @@ echo "Start:Prepare :${TODAY}=> ${ONL_DIR}-BAL}" | tee -a $Record_File
 #--- Check out the specified ONL code from git Hub
 #TO_UPDATE_ONL="y"
 if [[ "${TO_UPDATE_ONL}" == "y" ]]; then
-	git clone ${ONL_GIT_NAME} -b ${ONL_GIT_B} ./${ONL_NAME}
+	git clone ${ONL_GIT_NAME} -b ${ONL_GIT_B} ${ONL_DIR}
 	#cd ./${ONL_NAME}
 	#git checkout ${CMM_ID}
 	#cd ..
@@ -67,41 +67,39 @@ if [[ "${TO_PREPARE_BAL}" == "y" ]]; then
 	   exit -1
 	fi
 
-	cd ${ONL_DIR}
 	echo "1. Prepare  BAL "
-    mkdir -p ./${BAL_NAME}
+	mkdir -p ${BAL_DIR}
 	#unzip BAL src
-	unzip ${BROADCOM_DOWNLOAD_DIR}/${BALSRC_ZIPNAME} -d ./${BAL_NAME}
+	unzip ${BROADCOM_DOWNLOAD_DIR}/${BALSRC_ZIPNAME} -d ${BAL_DIR}
 
 	#copy SDK
-	cp ${BROADCOM_DOWNLOAD_DIR}/${SDK_FILE}  ./${BAL_NAME}/bal_release/3rdparty/bcm-sdk
+	cp ${BROADCOM_DOWNLOAD_DIR}/${SDK_FILE}  ${BAL_DIR}/bal_release/3rdparty/bcm-sdk
 
 	# Copy the patch file to the Broadcom SDK directory:
-    cp ${EDGECORE_DOWNLOAD_DIR}/${PATCH_FILENAME} ./${BAL_NAME}
-	chmod -R 744 ./${BAL_NAME}
-	cd  ./${BAL_NAME}
+	cp ${EDGECORE_DOWNLOAD_DIR}/${PATCH_FILENAME} ${BAL_DIR}
+	chmod -R 744 ${BAL_DIR}
+	cd  ${BAL_DIR}
 	cat ./${PATCH_FILENAME} | patch -p1
-	cd ..
+	cd ${PPWW}
 fi
 
 TO_ONL_LINK="y"
 if [[ "${TO_ONL_LINK}" == "y" ]]; then
-	cd ${ONL_DIR}
 
 	#Create the link to the kernel source:
 	echo "BAL_NAME=${BAL_NAME}"
-	cd ./${BAL_NAME}/bcm68620_release
+	cd ${BAL_DIR}/bcm68620_release
 	mkdir -p ./asfvolt16/kernels
 		cd ./asfvolt16/kernels
-		ln -s ../../../../packages/base/amd64/kernels/kernel-4.14-lts-x86-64-all/builds/jessie/linux-4.14.49 linux-4.14.49
-		ln -s ../../../../packages/base/any/kernels/archives/linux-4.14.49.tar.xz linux-4.14.49.tar.xz
-		ln -s ../../../../packages/base/any/kernels/4.14-lts/configs/x86_64-all/x86_64-all.config x86_64-all.config
-		cd ../..
+		ln -s ${ONL_DIR}/packages/base/amd64/kernels/kernel-4.14-lts-x86-64-all/builds/jessie/linux-4.14.49 linux-4.14.49
+		ln -s ${ONL_DIR}/packages/base/any/kernels/archives/linux-4.14.49.tar.xz linux-4.14.49.tar.xz
+		ln -s ${ONL_DIR}/packages/base/any/kernels/4.14-lts/configs/x86_64-all/x86_64-all.config x86_64-all.config
 	cd ../..
+	cd  ${PPWW}
 
 fi
 
-cd  ${PPWW}
+
 
 
 e_time=$(date +%s)

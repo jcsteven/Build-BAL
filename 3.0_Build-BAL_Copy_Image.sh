@@ -20,10 +20,10 @@ IMAGE_NAME=amd64-${TODAY}-BAL-Build
 TO_COPY_ONL_IMAGE="y"
 if [[ "${TO_COPY_ONL_IMAGE}" == "y" ]]; then
 	echo "To Copy ONL Image File."
-	cd ./${ONL_NAME}
+	cd ${ONL_DIR}
 	ONL_VERSION=`git branch | sed -e 's/*//g' | sed -e 's/^[ \t]*//'`
-	cd ..
-	BUILD_DIR1=./${ONL_NAME}/RELEASE/jessie/amd64
+	cd ${PPWW}
+	BUILD_DIR1=${ONL_DIR}/RELEASE/jessie/amd64
 	if [ ! -d ${BUILD_DIR1} ]; then
 	   echo $LINENO "missing ${BUILD_DIR1}" |  tee -a $Record_File
 	   exit -1
@@ -35,7 +35,7 @@ fi
 TO_COPY_BAL_IMAGE="y"
 if [[ "${TO_COPY_BAL_IMAGE}" == "y" ]]; then 
 	echo "To Copy BAL Image File."	
-	BUILD_DIR2=./${ONL_NAME}/${BAL_NAME}/bal_release/3rdparty/bcm-sdk/rc/asfvolt16/release
+	BUILD_DIR2=${BAL_DIR}/3rdparty/bcm-sdk/rc/asfvolt16/release
 	if [ ! -d ${BAL_BUILD_DIR2} ]; then
 	   echo $LINENO "missing ${BUILD_DIR2}" |  tee -a $Record_File
 	   exit -1
@@ -55,9 +55,4 @@ echo "==========================================================================
 echo "End  :Start:2.5  BAL_Build-Copy Image-${TODAY}=> ${ONL_DIR}" | tee -a $Record_File
 echo "Build total time: $hh:$mm:$ss" | tee  -a  $Record_File
 echo "==============================================================================" | tee  -a  $Record_File
-
-
-
-
-
 

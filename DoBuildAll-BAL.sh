@@ -17,7 +17,7 @@ echo "Start:All-Build-${TODAY}=> ${ONL_DIR}" | tee -a $Record_File
 TO_BUILD_ALL="y"
 if [[ "${TO_BUILD_ALL}" == "y" ]]; then
 	echo "1. Build Maple SDK"
-	BUILD_DIR=./${ONL_NAME}/${BAL_NAME}/bal_release
+	BUILD_DIR=${BAL_BUILD_DIR}
 	if [ ! -d ${BAL_BUILD_DIR} ]; then
 	   echo $LINENO "missing ${BAL_BUILD_DIR}" |  tee -a $Record_File
 	   exit -1
@@ -34,7 +34,7 @@ if [[ "${TO_BUILD_ALL}" == "y" ]]; then
 	cd ../../../../../../../../
 	make BOARD=asfvolt16 bal
 	make BOARD=asfvolt16 release_board
-	cd ../../../
+	cd ${PPWW}
 fi
 
 e_time=$(date +%s)

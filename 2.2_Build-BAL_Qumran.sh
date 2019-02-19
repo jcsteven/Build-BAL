@@ -17,7 +17,7 @@ echo "Start:Qumran-Build-${TODAY}=> ${ONL_DIR}" | tee -a $Record_File
 TO_BUILD_QUMRAN="y"
 if [[ "${TO_BUILD_QUMRAN}" == "y" ]]; then
 	echo "2.1 Build Qumran SDK"
-	BUILD_DIR=./${ONL_NAME}/${BAL_NAME}/bal_release
+	BUILD_DIR=${BAL_BUILD_DIR}
 	if [ ! -d ${BAL_BUILD_DIR} ]; then
 	   echo $LINENO "missing ${BAL_BUILD_DIR}" |  tee -a $Record_File
 	   exit -1
@@ -26,14 +26,13 @@ if [[ "${TO_BUILD_QUMRAN}" == "y" ]]; then
 
 	make BOARD=asfvolt16 switch_sdk_dir
 	make BOARD=asfvolt16 switch_sdk
-	cd ../../..
+	cd ${PPWW}
 fi
 
 TO_BUILD_BCM_USER="y"
 if [[ "${TO_BUILD_BCM_USER}" == "y" ]]; then
 	echo "2.2 Build BCM USER"
-	#BUILD_DIR=./${ONL_NAME}/bal_src_release/bal_release/3rdparty/bcm-sdk/build-asfvolt16/sdk-all-6.5.7/systems/linux/user/x86-generic_64-2_6
-	BUILD_DIR=./${ONL_NAME}/${BAL_NAME}/bal_release/3rdparty/bcm-sdk/build-asfvolt16/${SWISDK_TARNAME}/systems/linux/user/x86-generic_64-2_6
+	BUILD_DIR=${${BAL_BUILD_DIR}/3rdparty/bcm-sdk/build-asfvolt16/${SWISDK_TARNAME}/systems/linux/user/x86-generic_64-2_6
 
 	if [ ! -d ${BAL_BUILD_DIR} ]; then
 	   echo $LINENO "missing ${BAL_BUILD_DIR}" |  tee -a $Record_File

@@ -22,9 +22,8 @@ if [[ "${TO_PREPARE_BAL}" == "y" ]]; then
 	   exit -1
 	fi
 
-	cd ${PPWW}/${ONL_NAME}
-	rm -rf ./${BAL_NAME}
-	cd ${PPWW}
+	echo $LINENO "Remove BAL_NAME=${BAL_NAME}" |  tee -a $Record_File
+	rm -rf ${BAL_DIR}
 fi
 
 
@@ -32,7 +31,8 @@ fi
 #--- Check out the specified ONL code from git Hub
 #TO_UPDATE_ONL="y"
 if [[ "${TO_UPDATE_ONL}" == "y" ]]; then
-sudo rm -rf  ./${ONL_NAME}
+echo $LINENO "Remove ONL_DIR=${ONL_DIR}" |  tee -a $Record_File
+sudo rm -rf  ${ONL_DIR}
 fi
 
 
