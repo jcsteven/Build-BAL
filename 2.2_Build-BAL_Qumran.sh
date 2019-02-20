@@ -24,8 +24,8 @@ if [[ "${TO_BUILD_QUMRAN}" == "y" ]]; then
 	fi
 	cd ${BUILD_DIR}
 
-	make BOARD=asfvolt16 switch_sdk_dir
-	make BOARD=asfvolt16 switch_sdk
+	make BOARD=asfvolt16 V=1 switch_sdk_dir
+	make BOARD=asfvolt16 V=1 switch_sdk
 	cd ${PPWW}
 fi
 

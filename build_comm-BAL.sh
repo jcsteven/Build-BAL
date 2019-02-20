@@ -14,8 +14,8 @@ ONL_GIT_B=2019-0103-fixed-tg3
 ONL_NAME=OpenNetworkLinux
 ONL_DIR=${HOME}/${ONL_NAME}
 
-BAL_NAME=bal_src_release
-BAL_DIR=${PPWW}/${BAL_NAME}
+BAL_NAME=P16
+BAL_DIR=${HOME}/${BAL_NAME}
 BAL_BUILD_DIR=${BAL_DIR}/bal_release
 
 BROADCOM_DOWNLOAD_DIR=${HOME}/broadcom/download
