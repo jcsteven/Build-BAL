@@ -24,7 +24,7 @@ if [[ "${TO_BUILD_BOARD_RELEASE_FILE1}" == "y" ]]; then
 	fi
 	cd ${BUILD_DIR}
 
-	make BOARD=asfvolt64 V=1 release_board
+	make BOARD=asgvolt64 V=1 release_board
 	cd ${PPWW}
 fi
 

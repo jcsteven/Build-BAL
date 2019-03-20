@@ -24,7 +24,7 @@ if [[ "${TO_BUILD_BAL_API_USER}" == "y" ]]; then
 	fi
 	cd ${BUILD_DIR}
 
-	make BOARD=asfvolt64 V=1 bal
+	make BOARD=asgvolt64 V=1 bal
 	cd ${PPWW}
 fi
 

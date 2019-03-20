@@ -24,16 +24,16 @@ if [[ "${TO_BUILD_ALL}" == "y" ]]; then
 	fi
 	cd ${BUILD_DIR}
 
-	make BOARD=asfvolt64 maple_sdk_dir
-	make BOARD=asfvolt64 maple_sdk
-	make BOARD=asfvolt64 switch_sdk_dir
-	#tar zxvf ../../Diag_files/sdk-all-6.5.7.tgz -C 3rdparty/bcm-sdk/build-asfvolt64/
-	make BOARD=asfvolt64 switch_sdk
-	cd 3rdparty/bcm-sdk/build-asfvolt64/sdk-all-6.5.7/systems/linux/user/x86-generic_64-2_6
-	KERNDIR=${ONL_DIR}/packages/base/amd64/kernels/kernel-4.14-lts-x86-64-all/builds/jessie/linux-4.14.49  BOARD=asfvolt64 ARCH=x86_64 SDKBUILD=build_bcm_user make
+	make BOARD=asgvolt64 maple_sdk_dir
+	make BOARD=asgvolt64 maple_sdk
+	make BOARD=asgvolt64 switch_sdk_dir
+	#tar zxvf ../../Diag_files/sdk-all-6.5.7.tgz -C 3rdparty/bcm-sdk/build-asgvolt64/
+	make BOARD=asgvolt64 switch_sdk
+	cd 3rdparty/bcm-sdk/build-asgvolt64/sdk-all-6.5.7/systems/linux/user/x86-generic_64-2_6
+	KERNDIR=${ONL_DIR}/packages/base/amd64/kernels/kernel-4.14-lts-x86-64-all/builds/jessie/linux-4.14.49  BOARD=asgvolt64 ARCH=x86_64 SDKBUILD=build_bcm_user make
 	cd ../../../../../../../../
-	make BOARD=asfvolt64 bal
-	make BOARD=asfvolt64 release_board
+	make BOARD=asgvolt64 bal
+	make BOARD=asgvolt64 release_board
 	cd ${PPWW}
 fi
 
