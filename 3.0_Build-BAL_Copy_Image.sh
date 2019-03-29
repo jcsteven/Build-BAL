@@ -29,7 +29,7 @@ if [[ "${TO_COPY_ONL_IMAGE}" == "y" ]]; then
 	   exit -1
 	fi
 	#-- Create build imgage folder
-	cp ${BUILD_DIR1}/ONL-${ONL_VERSION}_ONL-OS_*_AMD64_INSTALLED_INSTALLER ./${IMAGE_NAME}
+	cp ${BUILD_DIR1}/ONL-*_AMD64_INSTALLED_INSTALLER ./${IMAGE_NAME}
 fi
 
 TO_COPY_BAL_IMAGE="y"
