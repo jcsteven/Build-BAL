@@ -33,6 +33,14 @@ if [[ "${TO_UPDATE_ONL}" == "y" ]]; then
 
 fi
 
+#--- Check out the specified BAL code from Accton's private gitLab
+#TO_UPDATE_BAL_GIT="y"
+if [[ "${TO_UPDATE_BAL_GIT}" == "y" ]]; then
+	git clone ${BAL_GIT_NAME} -b ${BAL_GIT_B} ${BAL_DIR}
+	#cd ./${ONL_NAME}
+	#git checkout ${CMM_ID}
+	#cd ..
+fi
 
 #----Prepare workspace for BAL
 TO_PREPARE_BAL="y"

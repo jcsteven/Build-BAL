@@ -13,10 +13,12 @@
 #ONL_GIT_B=2019-0103-fixed-tg3
 ONL_GIT_NAME="https://github.com/jostar-yang/OpenNetworkLinux.git"
 ONL_GIT_B=asgvolt64_0315
+BAL_GIT_NAME="https://git88.accton.com.tw/jcyu/BAL2.6.1.3.git"
+BAL_GIT_B=asgvolt64
 ONL_NAME=OpenNetworkLinux
 ONL_DIR=${HOME}/${ONL_NAME}
 
-BAL_NAME=G64
+BAL_NAME=Build/ASGvOLT64
 BAL_DIR=${HOME}/${BAL_NAME}
 BAL_BUILD_DIR=${BAL_DIR}/bal_release
 
