@@ -13,8 +13,8 @@
 #ONL_GIT_B=2019-0103-fixed-tg3
 ONL_GIT_NAME="https://github.com/jostar-yang/OpenNetworkLinux.git"
 ONL_GIT_B=asgvolt64_0315
-BAL_GIT_NAME="https://git88.accton.com.tw/jcyu/BAL2.6.1.3.git"
-BAL_GIT_B=asgvolt64
+BAL_GIT_NAME="https://git88.accton.com.tw/cicada/vOLT/BAL.git"
+BAL_GIT_B=2.6.1.3-ASGVOLT64-dev
 ONL_NAME=OpenNetworkLinux
 ONL_DIR=${HOME}/${ONL_NAME}
 
