@@ -21,12 +21,14 @@ echo "PATCH_FILENAME=${PATCH_FILENAME}"
 s_time=$(date +%s)
 echo "==============================================================================" |  tee -a $Record_File
 echo ".............................................................................." |  tee -a $Record_File
-echo "Start:Prepare :${TODAY}=> ${ONL_DIR}-BAL}" | tee -a $Record_File
+echo "Start:Prepare BAL:${TODAY}." | tee -a $Record_File
 
 #--- Check out the specified ONL code from git Hub
 #TO_UPDATE_ONL="y"
 if [[ "${TO_UPDATE_ONL}" == "y" ]]; then
-	git clone ${ONL_GIT_NAME} -b ${ONL_GIT_B} ./${ONL_NAME}
+	echo "2. Prepare ONL Root: ${ONL_ROOT}"
+	mkdir -p ${ONL_ROOT}
+	git clone ${ONL_GIT_NAME} -b ${ONL_GIT_B} ${ONL_DIR}
 	#cd ./${ONL_NAME}
 	#git checkout ${CMM_ID}
 	#cd ..
@@ -67,39 +69,32 @@ if [[ "${TO_PREPARE_BAL}" == "y" ]]; then
 	   exit -1
 	fi
 
-	cd ${ONL_DIR}
-	echo "1. Prepare  BAL "
-    mkdir -p ./${BAL_NAME}
-	#unzip BAL src
-	unzip ${BROADCOM_DOWNLOAD_DIR}/${BALSRC_ZIPNAME} -d ./${BAL_NAME}
+	echo "2. Prepare BAL Root: ${BAL_ROOT}"
+	mkdir -p ${BAL_ROOT}
 
-	#copy SDK
-	cp ${BROADCOM_DOWNLOAD_DIR}/${SDK_FILE}  ./${BAL_NAME}/bal_release/3rdparty/bcm-sdk
+	for board in ${BOARD_NAME_LIST}
+	do
+	  echo "For the project:${BAL_NAME}-${project} "
+          PROJECT_NAME=${BAL_NAME}-${board}
+          BAL_DIR=${BAL_ROOT}/${PROJECT_NAME}
+	  mkdir -p ${BAL_DIR}/
+	  tar zxf ${BROADCOM_DOWNLOAD_DIR}/${BALSRC_ZIPNAME} -C ${BAL_DIR} --strip-components=1
 
-	# Copy the patch file to the Broadcom SDK directory:
-    cp ${EDGECORE_DOWNLOAD_DIR}/${PATCH_FILENAME} ./${BAL_NAME}
-	chmod -R 744 ./${BAL_NAME}
-	cd  ./${BAL_NAME}
-	cat ./${PATCH_FILENAME} | patch -p1
-	cd ..
-fi
+	  cp ${BROADCOM_DOWNLOAD_DIR}/${SDK_FILE}  ${BAL_DIR}/switch_sdk/${SDK_VERSION}/.
 
-TO_ONL_LINK="y"
-if [[ "${TO_ONL_LINK}" == "y" ]]; then
-	cd ${ONL_DIR}
+	  TO_PREPARE_PATCH="y"
+	  if [[ "${TO_PREPARE_PATCH}" == "y" ]]; then
+	      # Copy the patch file to the Broadcom SDK directory:
+	      chmod -R 744 ${BAL_DIR}
+	      cd  ${BAL_DIR}
+	      cat ${EDGECORE_DOWNLOAD_DIR}/${PATCH_FILENAME} | patch -p1
+	      cd ..
+	  fi
 
-	#Create the link to the kernel source:
-	echo "BAL_NAME=${BAL_NAME}"
-	cd ./${BAL_NAME}/bcm68620_release
-	mkdir -p ./asfvolt16/kernels
-		cd ./asfvolt16/kernels
-		ln -s ../../../../packages/base/amd64/kernels/kernel-4.14-lts-x86-64-all/builds/jessie/linux-4.14.49 linux-4.14.49
-		ln -s ../../../../packages/base/any/kernels/archives/linux-4.14.49.tar.xz linux-4.14.49.tar.xz
-		ln -s ../../../../packages/base/any/kernels/4.14-lts/configs/x86_64-all/x86_64-all.config x86_64-all.config
-		cd ../..
-	cd ../..
+	done
 
 fi
+
 
 cd  ${PPWW}
 
@@ -110,7 +105,7 @@ ss=$((elap_s%60))
 mm=$(((elap_s/60)%60))
 hh=$((elap_s/3600))
 echo "==============================================================================" | tee -a $Record_File
-echo "End  :Prepare :${TODAY}=> ${ONL_DIR}-BAL}" | tee -a $Record_File
+echo "End:Prepare BAL:${TODAY}." | tee -a $Record_File
 echo "Build total time: $hh:$mm:$ss" | tee -a $Record_File
 echo "==============================================================================" | tee -a $Record_File
 
