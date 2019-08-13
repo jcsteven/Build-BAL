@@ -25,7 +25,7 @@ if [[ "${TO_BUILD_BAL}" == "y" ]]; then
 	   exit -1
 	fi
 	make -C ${BAL_DIR} BOARD=${BOARD} ONL_DIR=${ONL_DIR} OPEN_SOURCE=y
-	#make -C ${BAL_DIR} BOARD=${BOARD} release_board
+	make -C ${BAL_DIR} BOARD=${BOARD} release_board
 fi
 
 e_time=$(date +%s)
