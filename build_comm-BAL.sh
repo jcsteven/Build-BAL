@@ -9,18 +9,28 @@
 #TODAY=`date +"%Y-%m%d-%H%M"`
 :${PPWW:=`pwd`}
 :${Record_File_name:=Build-BAL-3.1.1.1-logs.txt}
-ONL_GIT_NAME="https://github.com/jcsteven/OpenNetworkLinux.git"
-ONL_GIT_B=asxvolt16
+ONL_GIT_NAME="https://github.com/jcsteven/OpenNetworkLinux.git -b 2019-0802"
+#ONL_GIT_NAME="https://github.com/opencomputeproject/OpenNetworkLinux.git"
+ONL_GIT_B=2019-0802
 ONL_NAME=OpenNetworkLinux
 ONL_ROOT=${HOME}
 ONL_DIR=${ONL_ROOT}/${ONL_NAME}
 
+OPENOLT_GIT_NAME="https://git88.accton.com.tw/jcyu/openolt-gerrit.git -b bal31"
+#OPENOLT_GIT_NAME="https://github.com/jcsteven/openolt.git"
+#OPENOLT_GIT_NAME="https://github.com/opencord/openolt.git"
+#OPENOLT_GIT_NAME="https://gerrit.opencord.org/openolt"
+OPENOLT_GIT_B=bal31
+OPENOLT_NAME=OpenOLT
+OPENOLT_ROOT=${HOME}
+OPENOLT_DIR=${ONL_ROOT}/${OPENOLT_NAME}
+
 BOARD_NAME_LIST="asfvolt16 asgvolt64"
 PROJECT_NAME_LIST="ASF ASG"
 
-BAL_ROOT=${PPWW}/BAL
+BAL_ROOT=${HOME}/BAL
 BAL_VERSION=3.1.1.1
-BAL_NAME=release-${BAL_VERSION}
+BAL_NAME=bal
 #BAL_BUILD_DIR=${ONL_DIR}/${BAL_NAME}
 
 BROADCOM_DOWNLOAD_DIR=${HOME}/broadcom/download

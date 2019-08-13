@@ -28,3 +28,31 @@ HowToBuild
 4. To copy ONL and BAL package in the folder in md64-<build date>-BAL-<BAL_VERSION>-Build
   $ ./3.0_Build-BAL_Copy_Image.sh
 ==============================================
+Support to work build OpenOLT agent
+0. Prepare OpenNeworkLinix, BAL and OpenOLT is fixed folders.
+  ONL: 
+      ~/OpenNetworkLinux
+  BAL: 
+      ~/BAL/asfvolt16-bal (ASFVOLT16)
+  OpenOLT:
+      ~/OpenOLT
+
+1.Check out code 
+  git clone https://git88.accton.com.tw/jcyu/openolt-gerrit.git -b bal31 ~/OpenOLT
+
+2. Make linkers for OpenOLT 
+   mkdir  ~/openolt/build
+   mkdir  ~/openolt/build/onl 
+   ln -s ~/OpenNetworkLinux  ./build/onl/OpenNetworkLinux
+   ln -s ~/BAL/asfvolt16-bal  ./build/asfvolt16-bal
+   ln -s ~/BAL/asfvolt16-bal  ./build/asgvolt64-bal
+
+/home/voltha/Build-BAL/BAL
+
+3. To skip build ONL and BAL in OpenAgent
+	make distclean
+	make onl --skip
+	make sdk --skip
+	make protos
+	make protos-clean
+

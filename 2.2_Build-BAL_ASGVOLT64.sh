@@ -12,7 +12,7 @@ source build_comm-BAL.sh
 [ -d $BLOG_DIR_WK ] || mkdir $BLOG_DIR_WK
 s_time=$(date +%s)
 BOARD=asgvolt64
-PROJECT_NAME=${BAL_NAME}-${BOARD}
+PROJECT_NAME=${BOARD}-${BAL_NAME}
 echo "..............................................................................." | tee -a $Record_File
 echo "Start: -Build-${PROJECT_NAME} ${TODAY}." | tee -a $Record_File
 

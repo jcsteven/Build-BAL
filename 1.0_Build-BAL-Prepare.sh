@@ -26,13 +26,10 @@ echo "Start:Prepare BAL:${TODAY}." | tee -a $Record_File
 #--- Check out the specified ONL code from git Hub
 #TO_UPDATE_ONL="y"
 if [[ "${TO_UPDATE_ONL}" == "y" ]]; then
-	echo "2. Prepare ONL Root: ${ONL_ROOT}"
+	echo "-1.1 Prepare ONL Root:"
 	mkdir -p ${ONL_ROOT}
-	git clone ${ONL_GIT_NAME} -b ${ONL_GIT_B} ${ONL_DIR}
-	#cd ./${ONL_NAME}
-	#git checkout ${CMM_ID}
-	#cd ..
-
+	#git clone ${ONL_GIT_NAME} -b ${ONL_GIT_B} ${ONL_DIR}
+	git clone ${ONL_GIT_NAME} ${ONL_DIR}
 fi
 
 
@@ -69,13 +66,13 @@ if [[ "${TO_PREPARE_BAL}" == "y" ]]; then
 	   exit -1
 	fi
 
-	echo "2. Prepare BAL Root: ${BAL_ROOT}"
+	echo "-1.x Prepare BAL Root:"
 	mkdir -p ${BAL_ROOT}
 
 	for board in ${BOARD_NAME_LIST}
 	do
 	  echo "For the project:${BAL_NAME}-${project} "
-          PROJECT_NAME=${BAL_NAME}-${board}
+          PROJECT_NAME=${board}-${BAL_NAME}
           BAL_DIR=${BAL_ROOT}/${PROJECT_NAME}
 	  mkdir -p ${BAL_DIR}/
 	  tar zxf ${BROADCOM_DOWNLOAD_DIR}/${BALSRC_ZIPNAME} -C ${BAL_DIR} --strip-components=1
