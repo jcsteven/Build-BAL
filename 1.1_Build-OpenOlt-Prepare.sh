@@ -26,8 +26,8 @@ fi
 TO_UPDATE_ONL_LINK="y"
 if [[ "${TO_UPDATE_ONL_LINK}" == "y" ]]; then
 	echo "-2. Prepare ONL Linker for OpenOLT:"
-	#echo "ONL_DIR=${ONL_DIR}"
-	#echo "OPENOLT_DIR=${OPENOLT_DIR}"
+	echo "ONL_DIR=${ONL_DIR}"
+	echo "OPENOLT_DIR=${OPENOLT_DIR}"
 	mkdir -p ${OPENOLT_DIR}/agent/build/onl
 	ln -s ${ONL_DIR} ${OPENOLT_DIR}/agent/build/onl/OpenNetworkLinux
 fi
@@ -39,10 +39,11 @@ if [[ "${TO_UPDATE_BAL_LINK}" == "y" ]]; then
 	  echo "-3.x Prepare BAL-${board} Linker for OpenOLT:"
 	  PROJECT_NAME=${board}-${BAL_NAME}
 	  BAL_DIR=${BAL_ROOT}/${PROJECT_NAME}	
-	  #echo "BAL_DIR=${BAL_DIR}"
-	  #echo "OPENOLT_DIR=${OPENOLT_DIR}"
+	  echo "From: BAL_DIR=${BAL_DIR}"
+	  echo "OPENOLT_DIR=${OPENOLT_DIR}"
+	  echo "To : ${OPENOLT_DIR}/agent/build/${PROJECT_NAME}"	  
 	  mkdir -p ${OPENOLT_DIR}/agent/build
-	  ln -s ${ONL_DIR} ${OPENOLT_DIR}/agent/build/${PROJECT_NAME}
+	  ln -s ${BAL_DIR} ${OPENOLT_DIR}/agent/build/${PROJECT_NAME}
 	done  
 fi
 
