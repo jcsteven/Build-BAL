@@ -47,9 +47,10 @@ Support to work build OpenOLT agent
    ln -s ~/BAL/asfvolt16-bal  ./build/asfvolt16-bal
    ln -s ~/BAL/asfvolt16-bal  ./build/asgvolt64-bal
 
-/home/voltha/Build-BAL/BAL
+3. What packages to be installed before from bare-metal VM
+   sudo apt-get install build-essential
 
-3. To skip build ONL and BAL in OpenAgent
+4. To skip build ONL and BAL in OpenAgent
 	make distclean
 	make onl --skip
 	make sdk --skip
