@@ -8,7 +8,6 @@
 # -------------------------------------------------------
 TODAY=`date +"%Y-%m%d-%H%M"`
 source build_comm-BAL.sh
-SDK_FILE=${SWISDK_TARNAME}.tar.gz
 
 
 echo "BALSRC_ZIPNAME=${BALSRC_ZIPNAME}"

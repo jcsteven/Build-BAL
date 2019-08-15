@@ -23,28 +23,105 @@ if [[ "${TO_UPDATE_OPENOLT}" == "y" ]]; then
 	git clone ${OPENOLT_GIT_NAME}  ${OPENOLT_DIR}
 fi
 
-TO_UPDATE_ONL_LINK="y"
-if [[ "${TO_UPDATE_ONL_LINK}" == "y" ]]; then
-	echo "-2. Prepare ONL Linker for OpenOLT:"
-	echo "ONL_DIR=${ONL_DIR}"
-	echo "OPENOLT_DIR=${OPENOLT_DIR}"
-	mkdir -p ${OPENOLT_DIR}/agent/build/onl
-	ln -s ${ONL_DIR} ${OPENOLT_DIR}/agent/build/onl/OpenNetworkLinux
+if [ ! -d $OPENOLT_DIR ]; then
+	echo $LINENO "missing ${OPENOLT_DIR}" |  tee -a $Record_File
+	exit -1
 fi
 
-TO_UPDATE_BAL_LINK="y"
-if [[ "${TO_UPDATE_BAL_LINK}" == "y" ]]; then
-	for board in ${BOARD_NAME_LIST}
-	do
-	  echo "-3.x Prepare BAL-${board} Linker for OpenOLT:"
-	  PROJECT_NAME=${board}-${BAL_NAME}
-	  BAL_DIR=${BAL_ROOT}/${PROJECT_NAME}	
-	  echo "From: BAL_DIR=${BAL_DIR}"
-	  echo "OPENOLT_DIR=${OPENOLT_DIR}"
-	  echo "To : ${OPENOLT_DIR}/agent/build/${PROJECT_NAME}"	  
-	  mkdir -p ${OPENOLT_DIR}/agent/build
-	  ln -s ${BAL_DIR} ${OPENOLT_DIR}/agent/build/${PROJECT_NAME}
-	done  
+TO_UPDATE_ONL="y"
+if [[ "${TO_UPDATE_ONL}" == "y" ]]; then
+   echo "-2. Prepare ONL Folder in OpenOLT: ${OPENOLT_DIR}"
+   echo "==> Do you want make ONL(${ONL_DIR}) Link to OpenOLT ? "
+   read -p " Yes-[Y or y] or No-[N or n]- Your select is Yes or No ?" -n 1 -r
+   if [[ $REPLY =~ ^[Yy]$ ]]
+   then
+       echo "\nONL_DIR=${ONL_DIR}"
+	echo "OPENOLT_DIR=${OPENOLT_DIR}"
+	   if [ ! -d $ONL_DIR ]; then
+	       echo $LINENO "missing ${ONL_DIR}" |  tee -a $Record_File
+	       exit -1
+	   fi
+	   mkdir -p ${OPENOLT_DIR}/agent/build/onl
+	   ln -s ${ONL_DIR} ${OPENOLT_DIR}/agent/build/onl/OpenNetworkLinux
+
+   elif [[ $REPLY =~ ^[Nn]$ ]]
+   then
+       echo "Select to Y for Nothing !!"
+   else
+        echo "Select to exit !!"
+	   exit -1
+   fi
+fi
+
+TO_UPDATE_BAL="y"
+if [[ "${TO_UPDATE_BAL}" == "y" ]]; then
+	echo "-3.x Prepare BAL-${board} Linker for OpenOLT:"
+	echo "==> Do you want make BAL-${borad} Link to OpenOLT ? "
+	read -p " Yes-[Y or y] or No-[N or n]- Your select is Yes or No ?" -n 1 -r
+	if [[ $REPLY =~ ^[Yy]$ ]]
+	then
+	  echo "\nTo Create Link for OpenOLT."
+	  for board in ${BOARD_NAME_LIST}
+	  do
+	    PROJECT_NAME=${board}-${BAL_NAME}
+	    BAL_DIR=${BAL_ROOT}/${PROJECT_NAME}
+ 	    if [ ! -d $BAL_DIR ]; then
+ 	       echo $LINENO "missing ${BAL_DIR}" |  tee -a $Record_File
+ 	       exit -1
+ 	    fi
+
+ 	    echo "From: BAL_DIR=${BAL_DIR}"
+ 	    echo "OPENOLT_DIR=${OPENOLT_DIR}"
+ 	    echo "To : ${OPENOLT_DIR}/agent/build/${PROJECT_NAME}"
+ 	    mkdir -p ${OPENOLT_DIR}/agent/build
+ 	    ln -s ${BAL_DIR} ${OPENOLT_DIR}/agent/build/${PROJECT_NAME}
+	  done
+	elif [[ $REPLY =~ ^[Nn]$ ]]
+	then
+ 	  echo "Select to Y for Nothing !!"
+	else
+ 	  echo "Select to exit !!"
+ 	  exit -1
+	fi
+fi
+
+TO_UPDATE_NDA="y"
+if [[ "${TO_UPDATE_NDA}" == "y" ]]; then
+   DOWNLOAD_DIR=${OPENOLT_DIR}/agent/download
+   echo "-4. Copy NDA files in OpenOLT: ${OPENOLT_DIR}"
+   echo "==> Do you want make NDA files Link to OpenOLT ? "
+   read -p " Yes-[Y or y] or No-[N or n]- Your select is Yes or No ?" -n 1 -r
+   if [[ $REPLY =~ ^[Yy]$ ]]
+   then
+       echo "\nDOWNLOAD_DIR=${DOWNLOAD_DIR}"
+	   echo "OPENOLT_DIR=${OPENOLT_DIR}"
+	   if [ ! -f ${BROADCOM_DOWNLOAD_DIR}/${BALSRC_ZIPNAME} ]; then
+	    echo $LINENO "missing ${BROADCOM_DOWNLOAD_DIR}/${BALSRC_ZIPNAME}" |  tee -a $Record_File
+	    exit -1
+	   fi
+
+	   if [ ! -f "${BROADCOM_DOWNLOAD_DIR}/${SDK_FILE}" ]; then
+	    echo $LINENO "123missing ${BROADCOM_DOWNLOAD_DIR}/${SDK_FILE}" |  tee -a $Record_File
+	    exit -1
+	   fi
+
+	   if [ ! -f "${EDGECORE_DOWNLOAD_DIR}/${PATCH_FILENAME}" ]; then
+	    echo $LINENO "missing ${BROADCOM_DOWNLOAD_DIR}/${PATCH_FILENAME}" |  tee -a $Record_File
+	    exit -1
+	   fi
+
+	   cp ${BROADCOM_DOWNLOAD_DIR}/${SDK_FILE}  ${DOWNLOAD_DIR}/.
+ 	   cp ${BROADCOM_DOWNLOAD_DIR}/${BALSRC_ZIPNAME}  ${DOWNLOAD_DIR}/.
+	   cp ${BROADCOM_DOWNLOAD_DIR}/${SDK_FILE}  ${DOWNLOAD_DIR}/.
+ 	   cp ${EDGECORE_DOWNLOAD_DIR}/${PATCH_FILENAME}  ${DOWNLOAD_DIR}/.
+
+   elif [[ $REPLY =~ ^[Nn]$ ]]
+   then
+       echo "Select to Y for Nothing !!"
+   else
+        echo "Select to exit !!"
+	   exit -1
+   fi
 fi
 
 
