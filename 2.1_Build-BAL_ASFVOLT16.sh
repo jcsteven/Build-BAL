@@ -24,7 +24,7 @@ if [[ "${TO_BUILD_BAL}" == "y" ]]; then
 	   echo $LINENO "missing ${BAL_DIR}" |  tee -a $Record_File
 	   exit -1
 	fi
-	make -C ${BAL_DIR} BOARD=${BOARD} ONL_DIR=${ONL_DIR} OPEN_SOURCE=y
+	make -C ${BAL_DIR} BOARD=${BOARD} ONL_DIR=${ONL_DIR} OPEN_SOURCE=y SW_UTIL_SHELL=y
 	make -C ${BAL_DIR} BOARD=${BOARD} release_board
 fi
 
