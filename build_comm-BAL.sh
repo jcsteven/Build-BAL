@@ -16,7 +16,8 @@ ONL_NAME=OpenNetworkLinux
 ONL_ROOT=${HOME}
 ONL_DIR=${ONL_ROOT}/${ONL_NAME}
 
-OPENOLT_GIT_NAME="https://git88.accton.com.tw/jcyu/openolt-gerrit.git -b bal31"
+OPENOLT_GIT_NAME="https://git88.accton.com.tw/cicada/vOLT/openolt.git -b bal31-dev"
+#OPENOLT_GIT_NAME="https://git88.accton.com.tw/jcyu/openolt-gerrit.git -b bal31"
 #OPENOLT_GIT_NAME="https://github.com/jcsteven/openolt.git"
 #OPENOLT_GIT_NAME="https://github.com/opencord/openolt.git"
 #OPENOLT_GIT_NAME="https://gerrit.opencord.org/openolt"
