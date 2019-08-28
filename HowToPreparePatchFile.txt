@@ -1,0 +1,38 @@
+0. How to generate the BAL Accton patch from gitLab
+
+1.
+git clone https://git88.accton.com.tw/cicada/vOLT/BAL.git -b 3.1.1.1 a
+rm -rf a/.git
+
+2. 
+git clone https://git88.accton.com.tw/cicada/vOLT/BAL.git -b 3.1.1.1-dev b
+rm -rf b/.git
+
+3.1
+check file in ./b/host_driver/bal/bal_include/bal_version.h
+#ifdef ACC_ONLP_DRIVER
+#define BOARD_VERSION          "V03.01.01.01.201908100203"
+#endif
+
+
+3.2 check file in ./b/host_driver/sw_version/bcmolt_host_sw_version.h
+#ifdef ACC_ONLP_DRIVER
+#define ACC_PATCH_VERSION     "201908100203"
+#endif /*ACC_ONLP_DRIVER*/
+
+3.3 Hence, 
+   BAL_VERSION=3.1.1.1
+   ACCTON_PATCH_VERSION is "201908100203"
+
+
+4. Generate the patch file as
+diff -Naur  a/ b/ >  ACCTON_BAL_${BAL_VERSION}-V${ACCTON_PATCH_VERSION}.patch
+diff -Naur  a/ b/ >  ACCTON_BAL_3.1.1.1-V201908100203.patch
+diff -Naur  a/ b/ >  ACCTON_BAL_3.1.1.1-V201908100203-3.patch
+
+5. Verify the patch
+  mkdir BAL
+  tar zxf SW-BCM68620_3_1_1_1.tgz --strip 1 -C BAL
+  cd BAL
+  cat ../ACCTON_BAL_3.1.1.1-V201908100203.patch | patch -p1
+  
