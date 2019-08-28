@@ -13,7 +13,7 @@ source build_comm-BAL.sh
 echo "BALSRC_ZIPNAME=${BALSRC_ZIPNAME}"
 echo "SDK_FILE=${SDK_FILE}"
 echo "PATCH_FILENAME=${PATCH_FILENAME}"
-
+echo "PATCH_FILENAME_LATEST=${PATCH_FILENAME_LATEST}"
 
 
 [ -d $BLOG_DIR_WK ] || mkdir $BLOG_DIR_WK
@@ -60,8 +60,8 @@ if [[ "${TO_PREPARE_BAL}" == "y" ]]; then
 	   exit -1
 	fi
 
-	if [ ! -f "${EDGECORE_DOWNLOAD_DIR}/${PATCH_FILENAME}" ]; then
-	   echo $LINENO "missing ${BROADCOM_DOWNLOAD_DIR}/${PATCH_FILENAME}" |  tee -a $Record_File
+	if [ ! -f "${EDGECORE_DOWNLOAD_DIR}/${PATCH_FILENAME_LATEST}" ]; then
+	   echo $LINENO "missing ${BROADCOM_DOWNLOAD_DIR}/${PATCH_FILENAME_LATEST}" |  tee -a $Record_File
 	   exit -1
 	fi
 
@@ -83,7 +83,7 @@ if [[ "${TO_PREPARE_BAL}" == "y" ]]; then
 	      # Copy the patch file to the Broadcom SDK directory:
 	      chmod -R 744 ${BAL_DIR}
 	      cd  ${BAL_DIR}
-	      cat ${EDGECORE_DOWNLOAD_DIR}/${PATCH_FILENAME} | patch -p1
+	      cat ${EDGECORE_DOWNLOAD_DIR}/${PATCH_FILENAME_LATEST} | patch -p1
 	      cd ..
 	  fi
 
