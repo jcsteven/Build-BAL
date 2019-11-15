@@ -2,8 +2,8 @@ This the build scrip for: Build-BAL2.6.1.3 (kernel 4.14.49)
 
 NDA files required from BROADCOM
 1. ~/broadcom/download/sdk-all-6.5.7.tar.gz
-2. ~/broadcom/download/SW-BCM68620_2_6_0_1.zip
-3. ~/edgecore/download/ACCTON_BAL_2.6.0.1-V201808011201.patch
+2. ~/broadcom/download/SW-BCM68620_2_4_6_10.zip
+3. ~/edgecore/download/ACCTON_BAL_2.4.6.10-V201711151812-2.patch
 
 HowToBuild
 1 Prepare the requied for build the ONL and BAL

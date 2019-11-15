@@ -17,8 +17,8 @@
 :${CMM_DATE:=2017-1228}
 
 
-ONL_GIT_NAME="https://github.com/jcsteven/OpenNetworkLinux.git"
-ONL_GIT_B=asxvolt16
+ONL_GIT_NAME="https://github.com/Lewis-Kang/OpenNetworkLinux.git"
+ONL_GIT_B=kernel_3.7.10
 ONL_NAME=OpenNetworkLinux
 ONL_DIR=${PPWW}/${ONL_NAME}
 
@@ -43,10 +43,10 @@ VOLTHA_DIR=${VOLTHA_INCUBATOR_DIR}/${VOLTHA_NAME}
 
 BROADCOM_DOWNLOAD_DIR=${HOME}/broadcom/download
 EDGECORE_DOWNLOAD_DIR=${HOME}/edgecore/download
-: ${BALSRC_ZIPNAME:=SW-BCM68620_2_6_1_3.zip}
+: ${BALSRC_ZIPNAME:=SW-BCM68620_2_4_6_10.zip}
 
 : ${SWISDK_TARNAME:=sdk-all-6.5.7}
-: ${PATCH_FILENAME:=ACCTON_BAL_2.6.1.3-V201810150305.patch}
+: ${PATCH_FILENAME:=ACCTON_BAL_2.4.6.10-V201711151812-2.patch}
 
 
 BLOG_DIR="Build-log"
