@@ -32,7 +32,6 @@ fi
 TO_BUILD_BCM_USER="y"
 if [[ "${TO_BUILD_BCM_USER}" == "y" ]]; then
 	echo "2.2 Build BCM USER"
-	#BUILD_DIR=./${ONL_NAME}/bal_src_release/bal_release/3rdparty/bcm-sdk/build-asfvolt16/sdk-all-6.5.7/systems/linux/user/x86-generic_64-2_6
 	BUILD_DIR=./${ONL_NAME}/${BAL_NAME}/bal_release/3rdparty/bcm-sdk/build-asfvolt16/${SWISDK_TARNAME}/systems/linux/user/x86-generic_64-2_6
 
 	if [ ! -d ${BAL_BUILD_DIR} ]; then
@@ -41,7 +40,7 @@ if [[ "${TO_BUILD_BCM_USER}" == "y" ]]; then
 	fi
 
 	pushd ${BUILD_DIR}
-	KERNDIR=${ONL_DIR}/packages/base/amd64/kernels/kernel-4.14-lts-x86-64-all/builds/jessie/linux-4.14.49 BOARD=asfvolt16 ARCH=x86_64 SDKBUILD=build_bcm_user make
+	KERNDIR=${ONL_DIR}/packages/base/amd64/kernels/kernel-3.7-x86-64-all/builds/linux-3.7.10 BOARD=asfvolt16 ARCH=x86_64 SDKBUILD=build_bcm_user make
 	popd
 fi
 
