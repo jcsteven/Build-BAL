@@ -29,6 +29,9 @@ if [[ "${TO_UPDATE_ONL}" == "y" ]]; then
 	mkdir -p ${ONL_ROOT}
 	#git clone ${ONL_GIT_NAME} -b ${ONL_GIT_B} ${ONL_DIR}
 	git clone ${ONL_GIT_NAME} ${ONL_DIR}
+	cd ${ONL_DIR}
+	git checkout -b ${ONL_GIT_B} ${ONL_COMMIT_SHA}
+	cd ..
 fi
 
 
@@ -84,6 +87,14 @@ if [[ "${TO_PREPARE_BAL}" == "y" ]]; then
 	      chmod -R 744 ${BAL_DIR}
 	      cd  ${BAL_DIR}
 	      cat ${EDGECORE_DOWNLOAD_DIR}/${PATCH_FILENAME_LATEST} | patch -p1
+	      cd ..
+	  fi
+
+	  TO_ONL_VERSION_PATCH="y"
+	  if [[ "${TO_ONL_VERSION_PATCH}" == "y" ]]; then
+	      # To replace ONL verion in the buid enviornment:
+	      cd  ${BAL_DIR}
+	      find ./ -type f -exec sed -i -e 's/4.14.109/4.14.151/g' {} \;
 	      cd ..
 	  fi
 
