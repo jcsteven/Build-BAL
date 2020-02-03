@@ -8,7 +8,7 @@
 # -------------------------------------------------------
 #TODAY=`date +"%Y-%m%d-%H%M"`
 :${PPWW:=`pwd`}
-:${Record_File_name:=Build-BAL-3.2.3.2-logs.txt}
+:${Record_File_name:=Build-BAL-3.4.0.0-logs.txt}
 ONL_GIT_NAME="https://github.com/jcsteven/OpenNetworkLinux.git -b 2019-0802"
 #ONL_GIT_NAME="https://github.com/opencomputeproject/OpenNetworkLinux.git"
 ONL_GIT_B=2019-0802
@@ -30,16 +30,16 @@ BOARD_NAME_LIST="asfvolt16 asgvolt64"
 PROJECT_NAME_LIST="ASF ASG"
 
 BAL_ROOT=${HOME}/BAL
-BAL_VERSION=3.2.3.2
+BAL_VERSION=3.4.0.0
 BAL_NAME=bal
 #BAL_BUILD_DIR=${ONL_DIR}/${BAL_NAME}
 
 BROADCOM_DOWNLOAD_DIR=${HOME}/broadcom/download
 EDGECORE_DOWNLOAD_DIR=${HOME}/edgecore/download
-: ${BALSRC_ZIPNAME:=SW-BCM686OLT_3_2_3_2.tgz}
+: ${BALSRC_ZIPNAME:=SW-BCM686OLT_3_4_0_0.tgz}
 : ${SDK_VERSION:=6.5.13}
-: ${PATCH_FILENAME:=ACCTON_BAL_3.2.3.2-V201912230101.patch}
-: ${PATCH_FILENAME_LATEST:=ACCTON_BAL_3.2.3.2-V201912230101.patch}
+: ${PATCH_FILENAME:=ACCTON_BAL_3.4.0.0-V202001200101.patch}
+: ${PATCH_FILENAME_LATEST:=ACCTON_BAL_3.4.0.0-V202001200101.patch}
 
 SWISDK_TARNAME=sdk-all-${SDK_VERSION}
 SDK_FILE=${SWISDK_TARNAME}.tar.gz
