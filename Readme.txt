@@ -7,11 +7,8 @@ NDA files required from BROADCOM
 
 HowToBuild
 1 Prepare the requied for build the ONL and BAL
+ $./1.0_Build-ONL-Prepare.sh
  $./1.0_Build-BAL-Prepare.sh
-
- Note:
-   A. The default script is not to update the ONL Source.
-      So, if you want to git update the ONL source, be sure to add [TO_UPDATE_ONL="y"]
 
 2. Get in Docker environment
   $ cd OpenNetworkLinux/
@@ -34,6 +31,7 @@ Support to work build OpenOLT agent
       ~/OpenNetworkLinux
   BAL: 
       ~/BAL/asfvolt16-bal (ASFVOLT16)
+      ~/BAL/asgvolt64-bal (ASGVOLT64)	  
   OpenOLT:
       ~/OpenOLT
 

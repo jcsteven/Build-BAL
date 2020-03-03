@@ -22,16 +22,6 @@ echo "==========================================================================
 echo ".............................................................................." |  tee -a $Record_File
 echo "Start:Prepare BAL:${TODAY}." | tee -a $Record_File
 
-#--- Check out the specified ONL code from git Hub
-#TO_UPDATE_ONL="y"
-if [[ "${TO_UPDATE_ONL}" == "y" ]]; then
-	echo "-1.1 Prepare ONL Root:"
-	mkdir -p ${ONL_ROOT}
-	#git clone ${ONL_GIT_NAME} -b ${ONL_GIT_B} ${ONL_DIR}
-	git clone ${ONL_GIT_NAME} ${ONL_DIR}
-fi
-
-
 #----Prepare workspace for BAL
 TO_PREPARE_BAL="y"
 if [[ "${TO_PREPARE_BAL}" == "y" ]]; then

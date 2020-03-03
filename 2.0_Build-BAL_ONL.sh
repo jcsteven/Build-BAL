@@ -14,7 +14,7 @@ s_time=$(date +%s)
 echo "==============================================================================" | tee -a $Record_File
 echo "Start:ONL-Build-${TODAY}=> ${ONL_DIR}" | tee -a $Record_File
 
-make build-onl ONL_DIR=~/OpenNetworkLinux  WORK_DIR=~/Build-BAL
+make build-onl ONL_DIR=${ONL_DIR}  WORK_DIR=${PPWW}
 
 e_time=$(date +%s)
 elap_s=$((e_time-s_time))

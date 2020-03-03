@@ -11,7 +11,8 @@
 :${Record_File_name:=Build-BAL-3.4.3.3-logs.txt}
 ONL_GIT_NAME="https://github.com/jcsteven/OpenNetworkLinux.git -b ONL-4.14.151-72b95a72"
 #ONL_GIT_NAME="https://github.com/opencomputeproject/OpenNetworkLinux.git"
-ONL_GIT_B=2019-0802
+ONL_GIT_B=ONL-4.14.151
+ONL_COMMIT_ID=72b95a72
 ONL_NAME=OpenNetworkLinux
 ONL_ROOT=${HOME}
 ONL_DIR=${ONL_ROOT}/${ONL_NAME}
