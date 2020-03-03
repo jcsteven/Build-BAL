@@ -63,6 +63,10 @@ if [[ "${TO_PREPARE_BAL}" == "y" ]]; then
 	  echo "For the project:${BAL_NAME}-${project} "
           PROJECT_NAME=${board}-${BAL_NAME}
           BAL_DIR=${BAL_ROOT}/${PROJECT_NAME}
+          if [ -d ${ONL_DIR} ]; then
+	    echo $LINENO "${BAL_DIR} is in the existence and to clean !!" |  tee -a $Record_File
+	    rm -rf  ${BAL_DIR}
+          fi
 	  mkdir -p ${BAL_DIR}/
 	  tar zxf ${BROADCOM_DOWNLOAD_DIR}/${BALSRC_ZIPNAME} -C ${BAL_DIR} --strip-components=1
 
