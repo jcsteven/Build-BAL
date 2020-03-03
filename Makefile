@@ -14,4 +14,4 @@
 
 build-onl:
 	#cd ~/OpenNetworkLinux && git pull && docker/tools/onlbuilder --non-interactive -8 -c ~/Build-BAL/build-asfvolt16.sh
-	cd $(ONL_DIR) && git pull && docker/tools/onlbuilder --non-interactive -8 -c $(WORK_DIR)/build-onl-in-docker.sh	
+	cd $(ONL_DIR) && docker/tools/onlbuilder --non-interactive -8 -c $(WORK_DIR)/build-onl-in-docker.sh && cd $(WORK_DIR)
