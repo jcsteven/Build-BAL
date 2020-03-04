@@ -8,12 +8,13 @@
 # -------------------------------------------------------
 TODAY=`date +"%Y-%m%d-%H%M"`
 source build_comm-BAL.sh
+me_file=`basename "$0"`
 
 [ -d $BLOG_DIR_WK ] || mkdir $BLOG_DIR_WK
 s_time=$(date +%s)
 echo "==============================================================================" |  tee -a $Record_File
 echo ".............................................................................." |  tee -a $Record_File
-echo "Start:Prepare OpenOLT:${TODAY}." | tee -a $Record_File
+echo "Start: ${me_file}:${TODAY}." | tee -a $Record_File
 
 #--- Check out the specified ONL code from git Hub
 TO_UPDATE_OPENOLT="y"
@@ -152,7 +153,7 @@ ss=$((elap_s%60))
 mm=$(((elap_s/60)%60))
 hh=$((elap_s/3600))
 echo "==============================================================================" | tee -a $Record_File
-echo "End:Prepare BAL:${TODAY}." | tee -a $Record_File
+echo "End: ${me_file}:${TODAY}." | tee -a $Record_File
 echo "Build total time: $hh:$mm:$ss" | tee -a $Record_File
 echo "==============================================================================" | tee -a $Record_File
 

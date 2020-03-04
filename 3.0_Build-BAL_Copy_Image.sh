@@ -8,11 +8,12 @@
 # -------------------------------------------------------
 TODAY=`date +"%Y-%m%d-%H%M"`
 source build_comm-BAL.sh
+me_file=`basename "$0"`
 
 [ -d $BLOG_DIR_WK ] || mkdir $BLOG_DIR_WK
 s_time=$(date +%s)
 echo "..............................................................................." | tee -a $Record_File
-echo "Start:3.0  BAL_Build-Copy Image-${TODAY}." | tee -a $Record_File
+echo "Start: ${me_file}:${TODAY}." | tee -a $Record_File
 
 IMAGE_NAME=amd64-${TODAY}-BAL-${BAL_VERSION}-Build
 [ -d ./${IMAGE_NAME} ] || mkdir -p ./${IMAGE_NAME}
@@ -56,7 +57,7 @@ ss=$((elap_s%60))
 mm=$(((elap_s/60)%60))
 hh=$((elap_s/3600))
 echo "==============================================================================" | tee  -a  $Record_File
-echo "End:3.0  BAL_Build-Copy Image-${TODAY}." | tee -a $Record_File
+echo "End: ${me_file}:${TODAY}-Done!!" | tee -a $Record_File
 echo "Build total time: $hh:$mm:$ss" | tee  -a  $Record_File
 echo "==============================================================================" | tee  -a  $Record_File
 

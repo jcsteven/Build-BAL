@@ -8,13 +8,14 @@
 # -------------------------------------------------------
 TODAY=`date +"%Y-%m%d-%H%M"`
 source build_comm-BAL.sh
+me_file=`basename "$0"`
 
 [ -d $BLOG_DIR_WK ] || mkdir $BLOG_DIR_WK
 s_time=$(date +%s)
 BOARD=asgvolt64
 PROJECT_NAME=${BOARD}-${BAL_NAME}
 echo "..............................................................................." | tee -a $Record_File
-echo "Start: -Build-${PROJECT_NAME} ${TODAY}." | tee -a $Record_File
+echo "Start: ${me_file}:${TODAY}." | tee -a $Record_File
 
 TO_BUILD_BAL="y"
 if [[ "${TO_BUILD_BAL}" == "y" ]]; then
@@ -34,7 +35,7 @@ ss=$((elap_s%60))
 mm=$(((elap_s/60)%60))
 hh=$((elap_s/3600))
 echo "==============================================================================" | tee -a  $Record_File
-echo "End: -Build-${PROJECT_NAME} ${TODAY}." | tee -a $Record_File
+echo "End: ${me_file}:${TODAY}-Done!!" | tee -a $Record_File
 echo "Build total time: $hh:$mm:$ss" | tee -a  $Record_File
 echo "==============================================================================" | tee -a  $Record_File
 

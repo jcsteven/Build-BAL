@@ -8,6 +8,7 @@
 # -------------------------------------------------------
 TODAY=`date +"%Y-%m%d-%H%M"`
 source build_comm-BAL.sh
+me_file=`basename "$0"`
 
 
 echo "BALSRC_ZIPNAME=${BALSRC_ZIPNAME}"
@@ -20,7 +21,7 @@ echo "PATCH_FILENAME_LATEST=${PATCH_FILENAME_LATEST}"
 s_time=$(date +%s)
 echo "==============================================================================" |  tee -a $Record_File
 echo ".............................................................................." |  tee -a $Record_File
-echo "Start:Prepare BAL:${TODAY}." | tee -a $Record_File
+echo "Start: ${me_file}:${TODAY}." | tee -a $Record_File
 
 #----Prepare workspace for BAL
 TO_PREPARE_BAL="y"
@@ -56,7 +57,7 @@ if [[ "${TO_PREPARE_BAL}" == "y" ]]; then
 	fi
 
 	echo "-1.x Prepare BAL Root:"
-	mkdir -p ${BAL_ROOT}
+	[ -d ${BAL_ROOT} ] || mkdir ${BAL_ROOT}
 
 	for board in ${BOARD_NAME_LIST}
 	do
@@ -95,7 +96,7 @@ ss=$((elap_s%60))
 mm=$(((elap_s/60)%60))
 hh=$((elap_s/3600))
 echo "==============================================================================" | tee -a $Record_File
-echo "End:Prepare BAL:${TODAY}." | tee -a $Record_File
+echo "End: ${me_file}:${TODAY}-Done!!" | tee -a $Record_File
 echo "Build total time: $hh:$mm:$ss" | tee -a $Record_File
 echo "==============================================================================" | tee -a $Record_File
 

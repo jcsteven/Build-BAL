@@ -8,6 +8,7 @@
 # -------------------------------------------------------
 TODAY=`date +"%Y-%m%d-%H%M"`
 source build_comm-BAL.sh
+me_file=`basename "$0"`
 
 [ -d $BLOG_DIR_WK ] || mkdir $BLOG_DIR_WK
 s_time=$(date +%s)
